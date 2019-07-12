@@ -1,0 +1,23 @@
+high-2-32: -s 119961048 (halite: 435128,  avg: 424)
+high-2-40: -s 295156326 (halite: 564802,  avg: 353)
+high-2-48: -s 262364305 (halite: 750408,  avg: 325)
+high-2-56: -s 37696982  (halite: 915480,  avg: 291)
+high-2-64: -s 116976978 (halite: 1603668, avg: 391)
+
+high-4-32: -s 141100176 (halite: 518644,  avg: 506)
+high-4-40: -s 204748591 (halite: 700636,  avg: 437)
+high-4-48: -s 158547448 (halite: 898920,  avg: 390)
+high-4-56: -s 59585760  (halite: 1104556, avg: 352)
+high-4-64: -s 303946417 (halite: 2013556, avg: 491)
+
+ low-2-32: -s 107155935 (halite: 57084,   avg: 55)
+ low-2-40: -s 283614876 (halite: 80614,   avg: 50)
+ low-2-48: -s 52539491  (halite: 131150,  avg: 56)
+ low-2-56: -s 87542748  (halite: 186476,  avg: 59)
+ low-2-64: -s 293212347 (halite: 224358,  avg: 54)
+
+ low-4-32: -s 255256613 (halite: 59800,   avg: 58)
+ low-4-40: -s 310722916 (halite: 73596,   avg: 45)
+ low-4-48: -s 29195240  (halite: 126708,  avg: 54)
+ low-4-56: -s 196170492 (halite: 160764,  avg: 51)
+ low-4-64: -s 252430175 (halite: 252340,  avg: 61)

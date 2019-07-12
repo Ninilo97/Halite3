@@ -1,0 +1,476 @@
+
+naiveNavigate2(ship, destination, size) {
+  const dist = destination.sub(ship.position).abs();
+  var mapNav = [...Array(size)].map(e => Array(size).fill(99999));
+  logging.debug("----------------");
+  logging.debug("Ship ID = " + ship.id);
+  var temp=[];
+  temp.push(destination);
+  mapNav[destination.y][destination.x]=0;
+  while(temp[0] instanceof Position){
+    for (const direction of this.getUnsafeMoves(temp[0],ship.position)) {
+      const targetPos = temp[0].directionalOffset(direction);
+      if(this.get(targetPos).isOccupied){
+        mapNav[targetPos.y][targetPos.x]=99999
+      }
+      else{
+        mapNav[targetPos.y][targetPos.x]=Math.min(mapNav[targetPos.y][targetPos.x],mapNav[temp[0].y][temp[0].x]+this.get(targetPos).haliteAmount);
+      }
+      temp.push(targetPos);
+    }
+    temp.splice(0,1);
+    const temp2=temp.filter((v, i, a) => a.indexOf(v) === i);
+    temp=temp2;
+  }
+  for(let y=0;y<size;y++){
+    logging.debug(mapNav[y]);
+  }
+  for (const direction of this.getUnsafeMoves(ship.position, destination)) {
+    const targetPos = ship.position.directionalOffset(direction);
+    if (!this.get(targetPos).isOccupied) {
+      this.get(ship.position).markSafe();
+      this.get(targetPos).markUnsafe(ship);
+      return direction;
+    }
+  }
+  return Direction.Still;
+}
+
+
+ndes[60].haliteAmount=this.get(ndes[60].position).isOccupied?0:Math.max(ndes[99].haliteAmount,ndes[84].haliteAmount,ndes[86].haliteAmount)+ndes[60].haliteAmount;
+ndes[61].haliteAmount=this.get(ndes[61].position).isOccupied?0:Math.max(ndes[100].haliteAmount,ndes[85].haliteAmount,ndes[87].haliteAmount)+ndes[61].haliteAmount;
+ndes[62].haliteAmount=this.get(ndes[62].position).isOccupied?0:Math.max(ndes[86].haliteAmount,ndes[88].haliteAmount)+ndes[62].haliteAmount;
+ndes[63].haliteAmount=this.get(ndes[63].position).isOccupied?0:Math.max(ndes[87].haliteAmount,ndes[89].haliteAmount)+ndes[63].haliteAmount;
+ndes[64].haliteAmount=this.get(ndes[64].position).isOccupied?0:Math.max(ndes[88].haliteAmount,ndes[90].haliteAmount)+ndes[64].haliteAmount;
+ndes[65].haliteAmount=this.get(ndes[65].position).isOccupied?0:Math.max(ndes[89].haliteAmount,ndes[91].haliteAmount)+ndes[65].haliteAmount;
+ndes[66].haliteAmount=this.get(ndes[66].position).isOccupied?0:Math.max(ndes[90].haliteAmount,ndes[92].haliteAmount)+ndes[66].haliteAmount;
+ndes[67].haliteAmount=this.get(ndes[67].position).isOccupied?0:Math.max(ndes[91].haliteAmount,ndes[93].haliteAmount)+ndes[67].haliteAmount;
+ndes[68].haliteAmount=this.get(ndes[68].position).isOccupied?0:Math.max(ndes[92].haliteAmount,ndes[94].haliteAmount)+ndes[68].haliteAmount;
+ndes[69].haliteAmount=this.get(ndes[69].position).isOccupied?0:Math.max(ndes[93].haliteAmount,ndes[95].haliteAmount)+ndes[69].haliteAmount;
+ndes[70].haliteAmount=this.get(ndes[70].position).isOccupied?0:Math.max(ndes[94].haliteAmount,ndes[96].haliteAmount)+ndes[70].haliteAmount;
+ndes[71].haliteAmount=this.get(ndes[71].position).isOccupied?0:Math.max(ndes[95].haliteAmount,ndes[97].haliteAmount)+ndes[71].haliteAmount;
+ndes[72].haliteAmount=this.get(ndes[72].position).isOccupied?0:Math.max(ndes[96].haliteAmount,ndes[97].haliteAmount,ndes[98].haliteAmount)+ndes[72].haliteAmount;
+ndes[73].haliteAmount=this.get(ndes[73].position).isOccupied?0:Math.max(ndes[99].haliteAmount,ndes[101].haliteAmount)+ndes[73].haliteAmount;
+ndes[74].haliteAmount=this.get(ndes[74].position).isOccupied?0:Math.max(ndes[100].haliteAmount,ndes[102].haliteAmount)+ndes[74].haliteAmount;
+ndes[75].haliteAmount=this.get(ndes[75].position).isOccupied?0:Math.max(ndes[101].haliteAmount,ndes[103].haliteAmount)+ndes[75].haliteAmount;
+ndes[76].haliteAmount=this.get(ndes[76].position).isOccupied?0:Math.max(ndes[102].haliteAmount,ndes[104].haliteAmount)+ndes[76].haliteAmount;
+ndes[77].haliteAmount=this.get(ndes[77].position).isOccupied?0:Math.max(ndes[103].haliteAmount,ndes[105].haliteAmount)+ndes[77].haliteAmount;
+ndes[78].haliteAmount=this.get(ndes[78].position).isOccupied?0:Math.max(ndes[104].haliteAmount,ndes[106].haliteAmount)+ndes[78].haliteAmount;
+ndes[79].haliteAmount=this.get(ndes[79].position).isOccupied?0:Math.max(ndes[105].haliteAmount,ndes[107].haliteAmount)+ndes[79].haliteAmount;
+ndes[80].haliteAmount=this.get(ndes[80].position).isOccupied?0:Math.max(ndes[106].haliteAmount,ndes[108].haliteAmount)+ndes[80].haliteAmount;
+ndes[81].haliteAmount=this.get(ndes[81].position).isOccupied?0:Math.max(ndes[107].haliteAmount,ndes[109].haliteAmount)+ndes[81].haliteAmount;
+ndes[82].haliteAmount=this.get(ndes[82].position).isOccupied?0:Math.max(ndes[108].haliteAmount,ndes[110].haliteAmount)+ndes[82].haliteAmount;
+ndes[83].haliteAmount=this.get(ndes[83].position).isOccupied?0:Math.max(ndes[109].haliteAmount,ndes[110].haliteAmount,ndes[111].haliteAmount)+ndes[83].haliteAmount;
+
+ndes[40].haliteAmount=this.get(ndes[40].position).isOccupied?0:Math.max(ndes[73].haliteAmount,ndes[60].haliteAmount,ndes[62].haliteAmount)+ndes[40].haliteAmount;
+ndes[41].haliteAmount=this.get(ndes[41].position).isOccupied?0:Math.max(ndes[74].haliteAmount,ndes[61].haliteAmount,ndes[63].haliteAmount)+ndes[41].haliteAmount;
+ndes[42].haliteAmount=this.get(ndes[42].position).isOccupied?0:Math.max(ndes[62].haliteAmount,ndes[64].haliteAmount)+ndes[42].haliteAmount;
+ndes[43].haliteAmount=this.get(ndes[43].position).isOccupied?0:Math.max(ndes[63].haliteAmount,ndes[65].haliteAmount)+ndes[43].haliteAmount;
+ndes[44].haliteAmount=this.get(ndes[44].position).isOccupied?0:Math.max(ndes[64].haliteAmount,ndes[66].haliteAmount)+ndes[44].haliteAmount;
+ndes[45].haliteAmount=this.get(ndes[45].position).isOccupied?0:Math.max(ndes[65].haliteAmount,ndes[67].haliteAmount)+ndes[45].haliteAmount;
+ndes[46].haliteAmount=this.get(ndes[46].position).isOccupied?0:Math.max(ndes[66].haliteAmount,ndes[68].haliteAmount)+ndes[46].haliteAmount;
+ndes[47].haliteAmount=this.get(ndes[47].position).isOccupied?0:Math.max(ndes[67].haliteAmount,ndes[69].haliteAmount)+ndes[47].haliteAmount;
+ndes[48].haliteAmount=this.get(ndes[48].position).isOccupied?0:Math.max(ndes[68].haliteAmount,ndes[70].haliteAmount)+ndes[48].haliteAmount;
+ndes[49].haliteAmount=this.get(ndes[49].position).isOccupied?0:Math.max(ndes[69].haliteAmount,ndes[71].haliteAmount)+ndes[49].haliteAmount;
+ndes[50].haliteAmount=this.get(ndes[50].position).isOccupied?0:Math.max(ndes[70].haliteAmount,ndes[71].haliteAmount,ndes[72].haliteAmount)+ndes[50].haliteAmount;
+ndes[51].haliteAmount=this.get(ndes[51].position).isOccupied?0:Math.max(ndes[73].haliteAmount,ndes[75].haliteAmount)+ndes[51].haliteAmount;
+ndes[52].haliteAmount=this.get(ndes[52].position).isOccupied?0:Math.max(ndes[74].haliteAmount,ndes[76].haliteAmount)+ndes[52].haliteAmount;
+ndes[53].haliteAmount=this.get(ndes[53].position).isOccupied?0:Math.max(ndes[75].haliteAmount,ndes[77].haliteAmount)+ndes[53].haliteAmount;
+ndes[54].haliteAmount=this.get(ndes[54].position).isOccupied?0:Math.max(ndes[76].haliteAmount,ndes[78].haliteAmount)+ndes[54].haliteAmount;
+ndes[55].haliteAmount=this.get(ndes[55].position).isOccupied?0:Math.max(ndes[77].haliteAmount,ndes[79].haliteAmount)+ndes[55].haliteAmount;
+ndes[56].haliteAmount=this.get(ndes[56].position).isOccupied?0:Math.max(ndes[78].haliteAmount,ndes[80].haliteAmount)+ndes[56].haliteAmount;
+ndes[57].haliteAmount=this.get(ndes[57].position).isOccupied?0:Math.max(ndes[79].haliteAmount,ndes[81].haliteAmount)+ndes[57].haliteAmount;
+ndes[58].haliteAmount=this.get(ndes[58].position).isOccupied?0:Math.max(ndes[80].haliteAmount,ndes[82].haliteAmount)+ndes[58].haliteAmount;
+ndes[59].haliteAmount=this.get(ndes[59].position).isOccupied?0:Math.max(ndes[81].haliteAmount,ndes[82].haliteAmount,ndes[83].haliteAmount)+ndes[59].haliteAmount;
+
+ndes[24].haliteAmount=this.get(ndes[24].position).isOccupied?0:Math.max(ndes[51].haliteAmount,ndes[40].haliteAmount,ndes[42].haliteAmount)+ndes[24].haliteAmount;
+ndes[25].haliteAmount=this.get(ndes[25].position).isOccupied?0:Math.max(ndes[52].haliteAmount,ndes[41].haliteAmount,ndes[43].haliteAmount)+ndes[25].haliteAmount;
+ndes[26].haliteAmount=this.get(ndes[26].position).isOccupied?0:Math.max(ndes[42].haliteAmount,ndes[44].haliteAmount)+ndes[26].haliteAmount;
+ndes[27].haliteAmount=this.get(ndes[27].position).isOccupied?0:Math.max(ndes[43].haliteAmount,ndes[45].haliteAmount)+ndes[27].haliteAmount;
+ndes[28].haliteAmount=this.get(ndes[28].position).isOccupied?0:Math.max(ndes[44].haliteAmount,ndes[46].haliteAmount)+ndes[28].haliteAmount;
+ndes[29].haliteAmount=this.get(ndes[29].position).isOccupied?0:Math.max(ndes[45].haliteAmount,ndes[47].haliteAmount)+ndes[29].haliteAmount;
+ndes[30].haliteAmount=this.get(ndes[30].position).isOccupied?0:Math.max(ndes[46].haliteAmount,ndes[48].haliteAmount)+ndes[30].haliteAmount;
+ndes[31].haliteAmount=this.get(ndes[31].position).isOccupied?0:Math.max(ndes[47].haliteAmount,ndes[49].haliteAmount)+ndes[31].haliteAmount;
+ndes[32].haliteAmount=this.get(ndes[32].position).isOccupied?0:Math.max(ndes[48].haliteAmount,ndes[50].haliteAmount,ndes[49].haliteAmount)+ndes[32].haliteAmount;
+ndes[33].haliteAmount=this.get(ndes[33].position).isOccupied?0:Math.max(ndes[51].haliteAmount,ndes[53].haliteAmount)+ndes[33].haliteAmount;
+ndes[34].haliteAmount=this.get(ndes[34].position).isOccupied?0:Math.max(ndes[52].haliteAmount,ndes[54].haliteAmount)+ndes[34].haliteAmount;
+ndes[35].haliteAmount=this.get(ndes[35].position).isOccupied?0:Math.max(ndes[53].haliteAmount,ndes[55].haliteAmount)+ndes[35].haliteAmount;
+ndes[36].haliteAmount=this.get(ndes[36].position).isOccupied?0:Math.max(ndes[54].haliteAmount,ndes[56].haliteAmount)+ndes[36].haliteAmount;
+ndes[37].haliteAmount=this.get(ndes[37].position).isOccupied?0:Math.max(ndes[55].haliteAmount,ndes[57].haliteAmount)+ndes[37].haliteAmount;
+ndes[38].haliteAmount=this.get(ndes[38].position).isOccupied?0:Math.max(ndes[56].haliteAmount,ndes[58].haliteAmount)+ndes[38].haliteAmount;
+ndes[39].haliteAmount=this.get(ndes[39].position).isOccupied?0:Math.max(ndes[57].haliteAmount,ndes[59].haliteAmount,ndes[58].haliteAmount)+ndes[39].haliteAmount;
+
+ndes[12].haliteAmount=this.get(ndes[12].position).isOccupied?0:Math.max(ndes[33].haliteAmount,ndes[24].haliteAmount,ndes[26].haliteAmount)+ndes[12].haliteAmount;
+ndes[13].haliteAmount=this.get(ndes[13].position).isOccupied?0:Math.max(ndes[34].haliteAmount,ndes[25].haliteAmount,ndes[27].haliteAmount)+ndes[13].haliteAmount;
+ndes[14].haliteAmount=this.get(ndes[14].position).isOccupied?0:Math.max(ndes[26].haliteAmount,ndes[28].haliteAmount)+ndes[14].haliteAmount;
+ndes[15].haliteAmount=this.get(ndes[15].position).isOccupied?0:Math.max(ndes[27].haliteAmount,ndes[29].haliteAmount)+ndes[15].haliteAmount;
+ndes[16].haliteAmount=this.get(ndes[16].position).isOccupied?0:Math.max(ndes[28].haliteAmount,ndes[30].haliteAmount)+ndes[16].haliteAmount;
+ndes[17].haliteAmount=this.get(ndes[17].position).isOccupied?0:Math.max(ndes[29].haliteAmount,ndes[31].haliteAmount)+ndes[17].haliteAmount;
+ndes[18].haliteAmount=this.get(ndes[18].position).isOccupied?0:Math.max(ndes[30].haliteAmount,ndes[32].haliteAmount,ndes[31].haliteAmount)+ndes[18].haliteAmount;
+ndes[19].haliteAmount=this.get(ndes[19].position).isOccupied?0:Math.max(ndes[33].haliteAmount,ndes[35].haliteAmount)+ndes[19].haliteAmount;
+ndes[20].haliteAmount=this.get(ndes[20].position).isOccupied?0:Math.max(ndes[34].haliteAmount,ndes[36].haliteAmount)+ndes[20].haliteAmount;
+ndes[21].haliteAmount=this.get(ndes[21].position).isOccupied?0:Math.max(ndes[35].haliteAmount,ndes[37].haliteAmount)+ndes[21].haliteAmount;
+ndes[22].haliteAmount=this.get(ndes[22].position).isOccupied?0:Math.max(ndes[36].haliteAmount,ndes[38].haliteAmount)+ndes[22].haliteAmount;
+ndes[23].haliteAmount=this.get(ndes[23].position).isOccupied?0:Math.max(ndes[37].haliteAmount,ndes[39].haliteAmount,ndes[38].haliteAmount)+ndes[23].haliteAmount;
+
+ndes[4].haliteAmount=this.get(ndes[4].position).isOccupied?0:Math.max(ndes[19].haliteAmount,ndes[12].haliteAmount,ndes[14].haliteAmount)+ndes[4].haliteAmount;
+ndes[5].haliteAmount=this.get(ndes[5].position).isOccupied?0:Math.max(ndes[20].haliteAmount,ndes[13].haliteAmount,ndes[15].haliteAmount)+ndes[5].haliteAmount;
+ndes[6].haliteAmount=this.get(ndes[6].position).isOccupied?0:Math.max(ndes[14].haliteAmount,ndes[16].haliteAmount)+ndes[6].haliteAmount;
+ndes[7].haliteAmount=this.get(ndes[7].position).isOccupied?0:Math.max(ndes[15].haliteAmount,ndes[17].haliteAmount)+ndes[7].haliteAmount;
+ndes[8].haliteAmount=this.get(ndes[8].position).isOccupied?0:Math.max(ndes[16].haliteAmount,ndes[18].haliteAmount,ndes[17].haliteAmount)+ndes[8].haliteAmount;
+ndes[9].haliteAmount=this.get(ndes[9].position).isOccupied?0:Math.max(ndes[19].haliteAmount,ndes[21].haliteAmount)+ndes[9].haliteAmount;
+ndes[10].haliteAmount=this.get(ndes[10].position).isOccupied?0:Math.max(ndes[20].haliteAmount,ndes[22].haliteAmount)+ndes[10].haliteAmount;
+ndes[11].haliteAmount=this.get(ndes[11].position).isOccupied?0:Math.max(ndes[21].haliteAmount,ndes[23].haliteAmount,ndes[22].haliteAmount)+ndes[11].haliteAmount;
+
+ndes[0].haliteAmount=this.get(ndes[0].position).isOccupied?0:Math.max(ndes[9].haliteAmount,ndes[4].haliteAmount,ndes[6].haliteAmount)+ndes[0].haliteAmount;
+ndes[1].haliteAmount=this.get(ndes[1].position).isOccupied?0:Math.max(ndes[10].haliteAmount,ndes[5].haliteAmount,ndes[7].haliteAmount)+ndes[1].haliteAmount;
+ndes[2].haliteAmount=this.get(ndes[2].position).isOccupied?0:Math.max(ndes[6].haliteAmount,ndes[8].haliteAmount,ndes[7].haliteAmount)+ndes[2].haliteAmount;
+ndes[3].haliteAmount=this.get(ndes[3].position).isOccupied?0:Math.max(ndes[9].haliteAmount,ndes[10].haliteAmount,ndes[11].haliteAmount)+ndes[3].haliteAmount;
+
+
+
+
+if(tot>83){
+  var mapNav=[...Array(gameMap.width)].map(e => Array(gameMap.height).fill(0));
+  for(const player of game.players.values()) {
+    if(player.id!==me.id){
+      for(const ship of player.getShips()) {
+        var position=ship.position.directionalOffset(new Direction(-4,0));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(-3,-1));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(-3,0));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(-3,1));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(-2,-2));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(-2,-1));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(-2,0));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]=-100;
+        position=ship.position.directionalOffset(new Direction(-2,1));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(-2,2));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(-1,-3));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(-1,-2));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(-1,-1));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]=-100;
+        position=ship.position.directionalOffset(new Direction(-1,0));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]=-100;
+        position=ship.position.directionalOffset(new Direction(-1,1));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]=-100;
+        position=ship.position.directionalOffset(new Direction(-1,2));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(-1,3));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(0,-4));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(0,-3));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(0,-2));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]=-100;
+        position=ship.position.directionalOffset(new Direction(0,-1));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]=-100;
+        position=ship.position.directionalOffset(new Direction(0,0));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]=-100;
+        position=ship.position.directionalOffset(new Direction(0,1));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]=-100;
+        position=ship.position.directionalOffset(new Direction(0,2));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]=-100;
+        position=ship.position.directionalOffset(new Direction(0,3));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(0,4));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(1,-3));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(1,-2));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(1,-1));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]=-100;
+        position=ship.position.directionalOffset(new Direction(1,0));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]=-100;
+        position=ship.position.directionalOffset(new Direction(1,1));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]=-100;
+        position=ship.position.directionalOffset(new Direction(1,2));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(1,3));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(2,-2));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(2,-1));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(2,0));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]=-100;
+        position=ship.position.directionalOffset(new Direction(2,1));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(2,2));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(3,-1));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(3,0));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(3,1));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+        position=ship.position.directionalOffset(new Direction(4,0));
+        position=gameMap.normalize(position);
+        mapNav[position.x][position.y]++;
+      }
+    }
+  }
+  for(var xx=0;xx<gameMap.width;xx++){
+    for(var yy=0;yy<gameMap.height;yy++){
+      var x=mapNav[yy][xx]>1?3:mapNav[yy][xx]<0?0:1;
+      // mapNav[yy][xx]=mapNav[yy][xx]>1?1:mapNav[yy][xx]<0?"-":0;
+      gameMap._cells[xx][yy].haliteAmount*=x;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+function fullCheck(){
+  let ans=0;
+  if(gameMap.get(me.shipyard.position.directionalOffset(Direction.North)).isOccupied){
+    ans++;
+  }
+  if(gameMap.get(me.shipyard.position.directionalOffset(Direction.South)).isOccupied){
+    ans++;
+  }
+  if(gameMap.get(me.shipyard.position.directionalOffset(Direction.East)).isOccupied){
+    ans++;
+  }
+  if(gameMap.get(me.shipyard.position.directionalOffset(Direction.West)).isOccupied){
+    ans++;
+  }
+  return ans;
+}
+/*
+const mapPro=[];
+for (let i = 0; i < gameMap.width/2; i++) {
+const row = [];
+mapPro.push(row);
+}
+for(var xx=0;xx<gameMap.width/2;xx++){
+for(var yy=0;yy<gameMap.height/2;yy++){
+let tot=gameMap._cells[yy*2][xx*2].haliteAmount+gameMap._cells[yy*2][xx*2+1].haliteAmount+gameMap._cells[yy*2+1][xx*2].haliteAmount+gameMap._cells[yy*2+1][xx*2+1].haliteAmount;
+mapPro[xx].push(tot);
+}
+mapProMax.push(Math.max(...mapPro[xx]));
+}
+var xx = mapProMax.indexOf(Math.max(...mapProMax));
+var yy = mapPro[xx].indexOf(Math.max(...mapPro[xx]));
+*/
+/*
+var tot=0;
+for(var xx=0;xx<gameMap.width;xx++){
+for(var yy=0;yy<gameMap.height;yy++){
+tot+=gameMap._cells[yy][xx].haliteAmount;
+}
+}
+tot=Math.floor(tot/(gameMap.width*gameMap.height));
+*/
+/*
+
+if(safeMove.toWireFormat()==='o'){
+for(const i of commandQueue){
+//if(gameMap.get(destination).ship.id)
+var cqT=commandQueue[i][0];
+var cqId=commandQueue[i][2];
+var cqM=commandQueue[i][4];
+if(cqId===gameMap.get(destination).ship.id && cqM!=='o'){
+
+}
+}
+}
+*/
+/*
+if(tot>70){
+var mapNav=[...Array(gameMap.height)].map(e => Array(gameMap.width).fill(0));
+for(const player of game.players.values()) {
+if(player.id!==me.id){
+for(const ship of player.getShips()) {
+var position=ship.position.directionalOffset(new Direction(-4,0));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-3,-1));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-3,0));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-3,1));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-2,-2));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-2,-1));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-2,0));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-2,1));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-2,2));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-1,-3));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-1,-2));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-1,-1));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-1,0));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-1,1));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-1,2));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(-1,3));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(0,-4));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(0,-3));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(0,-2));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(0,-1));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(0,0));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(0,1));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(0,2));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(0,3));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(0,4));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(1,-3));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(1,-2));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(1,-1));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(1,0));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(1,1));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(1,2));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(1,3));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(2,-2));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(2,-1));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(2,0));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(2,1));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(2,2));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(3,-1));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(3,0));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(3,1));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+position=ship.position.directionalOffset(new Direction(4,0));
+position=gameMap.normalize(position);
+mapNav[position.x][position.y]++;
+}
+}
+}
+for(var xx=0;xx<gameMap.height;xx++){
+for(var yy=0;yy<gameMap.width;yy++){
+var x=mapNav[xx][yy]>1?3:1;
+gameMap._cells[xx][yy].haliteAmount*=x;
+}
+}
+}
+*/
